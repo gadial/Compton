@@ -1,0 +1,86 @@
+\documentclass[landscape,a4]{myslides}
+\usepackage{theorem}
+\usepackage[dvips]{color}
+\usepackage{calc}
+\usepackage{ifthen}
+\usepackage{epsfig}
+%\usepackage{graphicx}
+\usepackage{latexsym}
+\usepackage{amssymb,amsmath}
+\input{smacros}
+\skiptrue
+%----------------headers----------------------
+\def\Lecturename{Logical Methods in Combinatorics, 236605-2009/10}  %xxx=ESSLLI'99
+\def\Lecture{Lecture ?}      %xxx=Lecture
+
+\begin{document}
+
+\begin{slide}
+\begin{center}
+{%\large
+\color{blue}
+0-1 laws for slow growing classes
+}
+\\
+\_\hrulefill
+\end{center}
+
+Our goal:
+{\small
+\begin{itemize}
+\item
+Define ``slow growing'' classes of structures (as opposed to ``fast growing'' which we shall not discuss)
+\item
+Find a probability measure on MSOL sentences that extends the usual measure (but is defined for any MSOL sentence)
+\item
+Study under which conditions a class has a 0-1 law with respect to this measure.
+\end{itemize}
+}
+\end{slide}
+ 
+\begin{slide}
+\begin{center}
+{%\large
+% 17 lines
+\color{blue}
+Definitions
+}
+\\
+\_\hrulefill
+
+\end{center}
+\small
+\begin{itemize}
+ \item Let $C$ be a class of labeled structures, and $C_n$ the class of structures of size $n$ in $C$.
+ \item Set $a_n = |C_n|$
+ \item The \emph{exponential generating series} for $C$ is the formal power series $a(x)=\sum_{n=0}^\infty\frac{a_n}{n!}x^n$
+ \item When considering $a(x)$ as an analytical function on $\mathbb{C}$ it makes sense to consider its radius of convergence $R$. If $R>0$ we say that $C$ is
+a \emph{slow growing} class (since the faster the sequence $a_n$ grows, the smaller the radius of convergence).
+\end{itemize}
+
+\end{slide}
+
+\begin{slide}
+\begin{center}
+{%\large
+\color{blue}
+The problem with the standard probability measure
+}
+\\
+\_\hrulefill
+
+
+\end{center}
+
+\small
+Recall that given a  sentence $\varphi$ we defined $\mu(\varphi)=\lim_{n\to\infty}\mu_n(\varphi)$ with $\mu_n(\varphi)=|\left\{\mathcal{M}\in C_n|\mathcal{M}\models\varphi \right\}|$.
+
+However, the value of $\mu_n(\varphi)$ might constantly alternate values, causing $\mu(\varphi)$ to be undefined.
+
+Example:
+
+Let $\varphi$ be the following property of $G=(V,E)$: ``$|V|$ is even and $|E|=0$'' (expressable in SOL).
+
+Obviously, $\mu_{2n}(\varphi) = 1$ and $\mu_{2n+1}(\varphi) = 0$
+\end{slide}
+\end{document}
