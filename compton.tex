@@ -51,7 +51,7 @@ Definitions
 \end{center}
 \small
 \begin{itemize}
- \item Let $C$ be a class of labeled structures, and $C_n$ the class of structures of size $n$ in $C$.
+ \item Let $C$ be a class of labeled structures, and $C_n$ be the class of structures of size $n$ in $C$.
  \item Set $a_n = |C_n|$
  \item The \emph{exponential generating series} for $C$ is the formal power series $a(x)=\sum_{n=0}^\infty\frac{a_n}{n!}x^n$
  \item When considering $a(x)$ as an analytical function on $\mathbb{C}$ it makes sense to consider its radius of convergence $R$. If $R>0$ we say that $C$ is
@@ -73,7 +73,7 @@ The problem with the standard probability measure
 \end{center}
 
 \small
-Recall that given a  sentence $\varphi$ we defined $\mu(\varphi)=\lim_{n\to\infty}\mu_n(\varphi)$ with $\mu_n(\varphi)=|\left\{\mathcal{M}\in C_n|\mathcal{M}\models\varphi \right\}|$.
+Recall that given a  sentence $\varphi$ we defined $\mu(\varphi)=\lim_{n\to\infty}\mu_n(\varphi)$ with $\mu_n(\varphi)=|\left\{\mathcal{M}\in C_n|\mathcal{M}\models\varphi \right\}| / |C_n|$.
 
 However, the value of $\mu_n(\varphi)$ might constantly alternate values, causing $\mu(\varphi)$ to be undefined.
 
@@ -83,4 +83,269 @@ Let $\varphi$ be the following property of $G=(V,E)$: ``$|V|$ is even and $|E|=0
 
 Obviously, $\mu_{2n}(\varphi) = 1$ and $\mu_{2n+1}(\varphi) = 0$
 \end{slide}
+
+\begin{slide}
+\begin{center}
+{%\large
+\color{blue}
+Extending the $\mu$ function
+}
+\\
+\_\hrulefill
+\end{center}
+\small
+
+We deal with a class of structures $C$ closed under disjoint unions and components, such that the egf $a(x)$ for $C$ has radius of convergence $R>0$ and $\lim_{x\to R}a(x)=\infty$.
+
+Given $\varphi$, denote by $c(x)$ the egf corresponding to the class defined by $\varphi$.
+
+For this case, define $\overline{\mu}(\varphi) = \lim_{x\to R} c(x)/a(x)$
+
+Using standard calculus techniques it can be shown that if $\mu(\varphi)$ exists, then $\mu(\varphi)=\overline{\mu}(\varphi)$.
+
+It remains to be shown that $\overline{\mu}(\varphi)$ is defined for \emph{every} MSO $\varphi$.
+\end{slide}
+
+\begin{slide}
+\begin{center}
+{%\large
+\color{blue}
+Two facts about constructions of structures
+}
+\\
+\_\hrulefill
+\end{center}
+\small
+
+By denoting $\mathcal{M}\approx_r\mathcal{N}$ we mean that the structues $\mathcal{M}, \mathcal{N}$ satisfy the same MSO sentences of quantifier rank at most $r$.
+
+\emph{Fact 1}: If $\mathcal{M}_0\approx_r\mathcal{N}_0$ and $\mathcal{M}_1\approx_r\mathcal{N}_1$ then $\mathcal{M}_0\uplus\mathcal{M}_1\approx_r\mathcal{N}_0\uplus\mathcal{N}_1$
+
+\emph{Fact 2}: For every $r$ and a similarity type there is an integer $s$ such that whenever $i,j\ge s$ and $\mathcal{M}$ is a structure of this similarity type, $i\cdot\mathcal{M}\approx_rj\cdot\mathcal{M}$
+
+$i\cdot\mathcal{M}$ denotes the disjoint union of $i$ copies of $\mathcal{M}$.
+
+The similarity type of $\mathcal{M}$ is the tuple of the arities of the relations over $\mathcal{M}$.
+
+For example, the similarity type of a graph is $(2)$ since we have only one binary relation.
+
+The similarity type of a colored graph is $(2,1)$ since we have the binary edge relation, and the unary color relation.
+
+We prove both facts by showing that in an Ehrenfeuch-Fraisse game with $r$ rounds over the composite structures, the duplicator has a winning strategy.
+\end{slide}
+
+\begin{slide}
+\begin{center}
+{%\large
+\color{blue}
+Proof of fact 1
+}
+\\
+\_\hrulefill
+\end{center}
+\small
+\emph{Fact 1}: If $\mathcal{M}_0\approx_r\mathcal{N}_0$ and $\mathcal{M}_1\approx_r\mathcal{N}_1$ then $\mathcal{M}_0\uplus\mathcal{M}_1\approx_r\mathcal{N}_0\uplus\mathcal{N}_1$
+
+The duplicator simply plays two games simultaneously. If the spoiler plays a move on $\mathcal{M}_0$, the duplicator replies with the move on $\mathcal{N}_0$  he would have played in the strategy proving $\mathcal{M}_0\approx_r\mathcal{N}_0$ .
+
+Other moves of the spoiler are dealt with similarily.
+
+Obvoiusly, after $r$ moves, the substructures on $\mathcal{M}_0$ and $\mathcal{N}_0$ are isomorphic, and so are the substructures on $\mathcal{M}_1$,$\mathcal{N}_1$.
+
+The disjoint union of two isomorphic substructures gives an isomorphic composite stucture, and so the duplicator has won.
+\end{slide}
+
+\begin{slide}
+\begin{center}
+{%\large
+\color{blue}
+Proof of fact 2
+}
+\\
+\_\hrulefill
+\end{center}
+\small
+\emph{Fact 2}: For every $r$ and a similarity type there is an integer $s$ such that whenever $i,j\ge s$ and $\mathcal{M}$ is a structure of this similarity type, $i\cdot\mathcal{M}\approx_rj\cdot\mathcal{M}$
+
+This is not a private case of fact 1, since we have a \emph{different number} of copies of $\mathcal{M}$ in the two structures.
+
+Proceed with induction on $r$ (we prove the claim for \emph{all} similarity types ``at once'').
+
+The spoiler takes the first move, by choosing a subset of (without loss of generality) $i\cdot \mathcal{M}$. We think of this move as adding a unary relation to the similary type of the structure (``coloring'' some vertices in a graph).
+
+Problem: We can no longer think of the structure $i\cdot \mathcal{M}$ as a disjoint union of the same structure $\mathcal{M}$ since different copies might look different (has different ``color'' patterns).
+
+Solution: Forget about $\mathcal{M}$, find another way to divide the structures into disjoint union of ``similar'' substructures.
+
+\end{slide}
+
+\begin{slide}
+\begin{center}
+{%\large
+\color{blue}
+Proof of fact 2 - cont.
+}
+\\
+\_\hrulefill
+\end{center}
+\small
+\emph{Fact 2}: For every $r$ and a similarity type there is an integer $s$ such that whenever $i,j\ge s$ and $\mathcal{M}$ is a structure of this similarity type, $i\cdot\mathcal{M}\approx_rj\cdot\mathcal{M}$
+
+Given a similarity type and $r$, there is only a finite number $t$ of equivalence classes of $\approx_{r-1}$ for that similarity type.
+
+We can think of the colored $i\cdot \mathcal{M}$ as a union of structures from all the equivalence classes.
+
+Denote by $S_1^i,S_2^i,\dots,S_t^i$ the sets of components of $i\cdot \mathcal{M}$ belonging to each equivalence class, 
+i.e. $i\cdot \mathcal{M} = \biguplus S_k^i$ and for all $k$, $S_k^i$ contains a number of equivalent substructures.
+
+\end{slide}
+
+\begin{slide}
+\begin{center}
+{%\large
+\color{blue}
+Proof of fact 2 - cont.
+}
+\\
+\_\hrulefill
+\end{center}
+\small
+\emph{Fact 2}: For every $r$ and a similarity type there is an integer $s$ such that whenever $i,j\ge s$ and $\mathcal{M}$ is a structure of this similarity type, $i\cdot\mathcal{M}\approx_rj\cdot\mathcal{M}$
+
+Given a similarity type and $r$, there is only a finite number $t$ of equivalence classes of $\approx_{r-1}$ for that similarity type.
+
+We can think of the colored $i\cdot \mathcal{M}$ as a union of structures from all the equivalence classes.
+
+Denote by $S_1^i,S_2^i,\dots,S_t^i$ the sets of components of $i\cdot \mathcal{M}$ belonging to each equivalence class, 
+i.e. $i\cdot \mathcal{M} = \biguplus S_k^i$ and for all $k$, $S_k^i$ contains a number of equivalent substructures.
+
+\end{slide}
+
+
+\begin{slide}
+\begin{center}
+{%\large
+\color{blue}
+Proof of fact 2 - cont.
+}
+\\
+\_\hrulefill
+\end{center}
+\small
+
+We can think of the spoiler's move as ``splitting`` each copy of $\mathcal{M}$ between some of the $S_k^i$'s.
+
+The bottom line: For each $S_k^i$ the duplicator can create a similar $S_k^j$ such that one of two things hold:
+\begin{enumerate}
+ \item $S_k^i$ has the same number of substructures as $S_k^j$, so they're trivially isomorphic.
+ \item $S_k^i$ and $S_k^j$ both contain \emph{a lot} of substructures, and we can use the induction hypothesis to show they're isomorphic.
+\end{enumerate}
+
+\end{slide}
+
+
+\begin{slide}
+\begin{center}
+{%\large
+\color{blue}
+Proof of fact 2 - cont.
+}
+\\
+\_\hrulefill
+\end{center}
+\small
+
+\emph{Fact 2}: For every $r$ and a similarity type there is an integer $s$ such that whenever $i,j\ge s$ and $\mathcal{M}$ is a structure of this similarity type, $i\cdot\mathcal{M}\approx_rj\cdot\mathcal{M}$
+
+To precisely define ''a lot``, let $s'$ be the constant guaranteed by the induction hypothesis for $r-1$ and the new similarity type.
+
+Now define $s=s't$, and so $i,j\ge s't$. This means that even if coloring $\mathcal{M}$ only contributes to \emph{one} euivalence class $S_k^j$, the duplicator
+can still fill every $S_k^j$ with at least $s'$ equivalent copies.
+
+So, if after the spoiler's move, $S_k^i$ contains at most $s'$ substructures, the duplicator ensures the same number of subsutrcutres would be in $S_k^j$.
+
+If there are more than $s'$ substructures in $S_k^i$, the duplicator ensures there are at least $s'$ substructures in $S_k^j$, and then uses the induction hypothesis on them.
+
+In any case, we get $S_k^i\approx_{r-1} S_k^j$, and so after the duplicator's move, the two structures are $\approx_{r-1}$-isomorphic, meaning that the duplicator has a winning strategy for a $r-1$-rounds game on the current structures. This concludes the proof of fact 2.
+\end{slide}
+
+\begin{slide}
+\begin{center}
+{%\large
+\color{blue}
+Back to the proof
+}
+\\
+\_\hrulefill
+\end{center}
+\small
+
+Recall that we want to prove that $\overline{\mu}(\varphi) = \lim_{x\to R}\frac{c(x)}{a(x)}$ always exists, for every MSOL formula $\varphi$.
+
+Let us consider the $\approx_{r}$-classes of connected structures in $C$, $D_0,\dots,D_{l-1}$, with egf $c_0(x),\dots,c_{l-1}(x)$, so $c(x) = \sum c_i(x)$.
+
+Recall fact 1:
+
+\emph{Fact 1}: If $\mathcal{M}_0\approx_r\mathcal{N}_0$ and $\mathcal{M}_1\approx_r\mathcal{N}_1$ then $\mathcal{M}_0\uplus\mathcal{M}_1\approx_r\mathcal{N}_0\uplus\mathcal{N}_1$
+
+This fact implies that to know what MSOL sentences  of quantifier rank $r$ hold in some structure, it suffices to know how many components that structure has in all the $D_i$'s 
+(since we can think of the structure as built by a disjoint union of all those components).
+\end{slide}
+
+\begin{slide}
+\begin{center}
+{%\large
+\color{blue}
+Back to the proof (cont.)
+}
+\\
+\_\hrulefill
+\end{center}
+\small
+
+Now recall fact 2:
+
+Let us consider the $\approx_{r}$-classes of connected structures in $C$, $D_0,\dots,D_{l-1}$, with egf $c_0(x),\dots,c_{l-1}(x)$, so $c(x) = \sum c_i(x)$.
+
+\emph{Fact 2}: For every $r$ and a similarity type there is an integer $s$ such that whenever $i,j\ge s$ and $\mathcal{M}$ is a structure of this similarity type, $i\cdot\mathcal{M}\approx_rj\cdot\mathcal{M}$
+
+This implies we don't really need to know the exact number of components in $D_i$ if it exceeds $s$; two structures with $s$ or more components in $D_i$ are isomorphic as far as $D_i$ is concerned.
+
+Thus, every structure in $C$ can be charactarized by a ''signature`` which is a tuple $\alpha = (j_0,j_1,\dots,j_{l-1})$ of the number of components that structure has in the equivalence classes $D_0,\dots,D_{l-1}$. Two structures with the same signature are $\approx_{r}$ equivalent.
+
+So, if two structures in $C$ have the same signatures, either both of them satisfy $\varphi$, or both of them does not satisfy $\varphi$. 
+
+For a signature $\alpha$, denote by $c_\alpha(x)$ the egf corresponding to the class of structures with signature $\alpha$.
+
+And so, the egf for the set of structures satisfying $\varphi$ is $\sum_\alpha c_\alpha(x)$ for some subset of the signatures $\alpha$. Since this is a finite sum, we can deal with every summand by itself.
+
+\end{slide}
+
+\begin{slide}
+\begin{center}
+{%\large
+\color{blue}
+Converging on the goal
+}
+\\
+\_\hrulefill
+\end{center}
+\small
+
+Let us state what remains to be proved:
+
+Given $c_\alpha(x)$, the egf for the class of structures satisfying $\alpha$, and given $a(x)$, the egf for all structures in $C$, we wish to prove that $\lim_{x\to R}\frac{c_\alpha(x)}{a(x)}$ converges.
+
+How does $c_\alpha(x)$ look? We use the egf's $c_0(x),\dots,c_{l-1}(x)$ of the classes $D_0,\dots,D_{l-1}$.
+
+A structure with signature $(j_0,j_1,\dots,j_{l-1}$ is built by taking $j_0$ components from $D_0$, $j_1$ components from $D_1$, etc. and performing a disjoint union on the components selected. 
+One exception is that when $j_i = s$ we do not have to take exactly $s$ components, but any number $\ge s$ of components.
+
+In general, if we have two classes of component with egf's $A(x),B(x)$ and we take one component from each class and perform a disjoint union, the egf of all
+elements obtained in this way is $A(x)\cdot B(x)$.
+
+Similarily, if we take $j$ elements from the class with egf $A(x)$, our egf will be $A(x)^j/j!$ (we divide by $j!$ since the order in which we choose 
+\end{slide}
+
+
 \end{document}
